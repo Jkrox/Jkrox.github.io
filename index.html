@@ -20,6 +20,7 @@
         a {
             color: #58a6ff;
             text-decoration: none;
+            cursor: pointer;
         }
         a:hover {
             text-decoration: underline;
@@ -40,6 +41,16 @@
             vertical-align: top;
             padding-bottom: 20px;
         }
+        #copyMessage {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #2ea043;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -47,16 +58,16 @@
     <div class="grid">
         <div>
             <p>
-                Developer doing stuff in Python and Rust. Working on Wrief and teaching Python on Youtube.
-            </p>
-            <p>
-                Contact me at <a href="mailto:emer.are@protonmail.com">emer.are@protonmail.com</a>
+                Developer doing stuff in Python and Rust. Working on Wrief and teaching Python on Youtube
             </p>
             <p>
                 <a href="https://github.com/Jkrox">github</a>
+                <a href="https://www.youtube.com/@LiftAndC0de">youtube</a>
+            </p>
+            <p>
+                <a id="emailLink">email</a>
                 <a href="https://linkedin.com/in/emer-are">linkedin</a>
                 <a href="https://x.com/LiftAndCode">twitter</a>
-                <a href="https://www.youtube.com/@LiftAndC0de">youtube channel</a>
             </p>
         </div>
         <img src="assets/images/uvfn4.jpg" alt="Jkrox" width="200" height="200">
@@ -73,7 +84,6 @@
                 <p>
                     <a href="https://github.com/Jkrox/wrief">github</a>
                 </p>
-                <!-- <img src="https://via.placeholder.com/138x94" alt="Wrief architecture" width="138" height="94"> -->
                 <p>
                     HTTP Rust-based server for Python with support for WebSockets, HTTP/1.1, 2, 3, ASGI, and WSGI protocols.
                 </p>
@@ -88,9 +98,8 @@
             </td>
             <td>
                 <p>
-                    <a href="https://github.com/johndoe/ws-redirector">github</a>
+                    <a>github hidden</a>
                 </p>
-                <!-- <img src="assets/images/" alt="WebSocket Redirector diagram" width="138" height="94"> -->
                 <p>
                     Real-time data redirection pipeline service using WebSockets as the source and REST API as the destination.
                 </p>
@@ -120,5 +129,24 @@
 
     <hr>
     <em>Last updated: October 2024</em>
+
+    <div id="copyMessage">Email copied to clipboard!</div>
+
+    <script>
+        document.getElementById('emailLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            var encodedEmail = 'ZW1lci5hcmVAcHJvdG9ubWFpbC5jb20='; // Base64 encoded email
+            var email = atob(encodedEmail);
+            navigator.clipboard.writeText(email).then(function() {
+                var message = document.getElementById('copyMessage');
+                message.style.display = 'block';
+                setTimeout(function() {
+                    message.style.display = 'none';
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    </script>
 </body>
 </html>
