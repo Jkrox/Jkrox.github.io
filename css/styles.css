@@ -1,0 +1,118 @@
+body {
+    font-family: monospace;
+    line-height: 1.6;
+    color: #c9d1d9;
+    background-color: #0d1117;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+h1, h2, h3 {
+    color: #58a6ff;
+}
+a {
+    color: #58a6ff;
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover {
+    text-decoration: underline;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+table {
+    width: 100%;
+}
+td {
+    vertical-align: top;
+    padding-bottom: 20px;
+}
+#copyMessage {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #2ea043;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+.fullscreen-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    overflow: hidden;
+}
+.fullscreen-image-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fullscreen-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    cursor: move;
+}
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.zoom-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+.zoom-button {
+    background-color: #238636;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 18px;
+}
+.zoom-button:hover {
+    background-color: #2ea043;
+}
+.view-diagram-btn {
+    background-color: #238636;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: monospace;
+    margin-top: 10px;
+}
+.view-diagram-btn:hover {
+    background-color: #2ea043;
+}

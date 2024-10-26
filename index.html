@@ -4,54 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emerson Arenas</title>
-    <style>
-        body {
-            font-family: monospace;
-            line-height: 1.6;
-            color: #c9d1d9;
-            background-color: #0d1117;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1, h2, h3 {
-            color: #58a6ff;
-        }
-        a {
-            color: #58a6ff;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: 3fr 1fr;
-            gap: 20px;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        table {
-            width: 100%;
-        }
-        td {
-            vertical-align: top;
-            padding-bottom: 20px;
-        }
-        #copyMessage {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #2ea043;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <h1>Emerson Arenas</h1>
@@ -88,24 +41,25 @@
                     HTTP Rust-based server for Python with support for WebSockets, HTTP/1.1, 2, 3, ASGI, and WSGI protocols.
                 </p>
                 <p>
-                    Stack: Rust, Python
+                    Stack: Rust, Tokio, Hyper, Python, Uvloop
                 </p>
             </td>
         </tr>
         <tr>
             <td>
-                <h3>WebSocket Redirector</h3>
+                <h3>Data Redirector Pipeline</h3>
             </td>
             <td>
                 <p>
                     <a>github hidden</a>
                 </p>
                 <p>
-                    Real-time data redirection pipeline service using WebSockets as the source and REST API as the destination.
+                    Real-time data redirection pipeline service using WebSockets as the source and REST API services as the destinataries.
                 </p>
                 <p>
-                    Stack: Python, AsyncIO, FastAPI
+                    Stack: Python, aiohttp, Pydantic, Websockets, Systemd, Logging, Third API services.
                 </p>
+                <button class="view-diagram-btn" onclick="openFullscreen('assets/images/redirector data pipeline.png')">View Architecture Diagram</button>
             </td>
         </tr>
     </table>
@@ -132,21 +86,19 @@
 
     <div id="copyMessage">Email copied to clipboard!</div>
 
-    <script>
-        document.getElementById('emailLink').addEventListener('click', function(e) {
-            e.preventDefault();
-            var encodedEmail = 'ZW1lci5hcmVAcHJvdG9ubWFpbC5jb20='; // Base64 encoded email
-            var email = atob(encodedEmail);
-            navigator.clipboard.writeText(email).then(function() {
-                var message = document.getElementById('copyMessage');
-                message.style.display = 'block';
-                setTimeout(function() {
-                    message.style.display = 'none';
-                }, 2000);
-            }).catch(function(err) {
-                console.error('Failed to copy: ', err);
-            });
-        });
-    </script>
+    <div id="fullscreenOverlay" class="fullscreen-overlay">
+        <span class="close-button" onclick="closeFullscreen()">&times;</span>
+        <div class="fullscreen-image-container">
+            <img id="fullscreenImage" class="fullscreen-image" src="" alt="Full-screen diagram">
+        </div>
+        <div class="zoom-controls">
+            <button class="zoom-button" onclick="zoomImage(-0.1)">-</button>
+            <button class="zoom-button" onclick="zoomImage(0.1)">+</button>
+        </div>
+    </div>
+
+    <script src="js/email.js"></script>
+    <script src="js/fullscreen.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
